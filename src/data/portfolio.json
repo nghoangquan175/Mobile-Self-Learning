@@ -1,0 +1,514 @@
+{
+  "site": {
+    "logo": "QuanNH",
+    "logoAccent": ".",
+    "nav": [
+      {
+        "label": "Work",
+        "href": "#work"
+      },
+      {
+        "label": "Personal",
+        "href": "#personal"
+      },
+      {
+        "label": "Stack",
+        "href": "#skills"
+      },
+      {
+        "label": "Experience",
+        "href": "#experience"
+      },
+      {
+        "label": "Language",
+        "href": "#language"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
+    ],
+    "navCta": {
+      "label": "Contact me",
+      "href": "#contact"
+    }
+  },
+  "hero": {
+    "tag": "// NGUYEN HOANG QUAN · FULL-STACK DEVELOPER · HANOI",
+    "titleLines": [
+      "Built for real clients.",
+      "Shipped for real users."
+    ],
+    "description": "I build and look after production websites for international clients — from the first design to launch and the years after it.",
+    "primaryCta": {
+      "label": "See my work",
+      "href": "#work"
+    },
+    "secondaryCta": {
+      "label": "Get in touch",
+      "href": "#contact"
+    },
+    "stats": [
+      {
+        "value": "5",
+        "label": "production sites"
+      },
+      {
+        "value": "1+",
+        "label": "years of experience"
+      },
+      {
+        "value": "Node.js",
+        "label": "runtime behind my stack"
+      },
+      {
+        "value": "B2",
+        "label": "English (CEFR)"
+      },
+      {
+        "value": "Figma",
+        "label": "designs built to spec"
+      },
+      {
+        "value": "AWS",
+        "label": "where I deploy"
+      },
+      {
+        "value": "AI",
+        "label": "assisted workflow, daily"
+      },
+      {
+        "value": "GMT+7",
+        "label": "in Hanoi, GMT+7",
+        "timeZone": "Asia/Ho_Chi_Minh"
+      }
+    ]
+  },
+  "work": {
+    "eyebrow": "01 / SELECTED WORK",
+    "title": "Client projects, newest first.",
+    "projects": [
+      {
+        "title": "John Holland Group",
+        "slug": "john-holland",
+        "role": "Maintenance",
+        "company": "MOHA Software",
+        "links": [
+          {
+            "label": "johnholland.com.au",
+            "href": "https://johnholland.com.au"
+          }
+        ],
+        "period": "SEP 2026",
+        "summary": "Corporate site of a major infrastructure and construction company.",
+        "tags": "Next.js · React · TypeScript · Strapi 4",
+        "details": [
+          "Monthly maintenance cycle on the live site: bug fixes, small improvements and client change requests",
+          "Worked across the Next.js front end and a Strapi CMS with 50+ content types",
+          "Kept the editor setup the client's content team relies on working as the CMS changed"
+        ]
+      },
+      {
+        "title": "READY.QUIT.SOLID",
+        "slug": "ready-quit-solid",
+        "role": "Full-stack",
+        "company": "MOHA Software",
+        "links": [],
+        "period": "AUG — SEP 2026",
+        "summary": "Quit-smoking and vaping platform for Aboriginal and Torres Strait Islander communities.",
+        "tags": "Next.js 16 · TypeScript · Tailwind CSS · Strapi 5 · PostgreSQL · HubSpot API · Docker",
+        "details": [
+          "Main contributor on front end and CMS: built the Next.js site from Figma and designed the Strapi content models and APIs behind it",
+          "Integrated HubSpot CRM so contact and newsletter sign-ups flow straight into the client's marketing tools",
+          "Reached Lighthouse 86–99 performance and 96–100 accessibility on every page, mobile and desktop",
+          "Deployed staging with Docker on the company's self-hosted server and shipped client change requests",
+          "Worked directly with the client over Slack and ClickUp: requirements, UAT feedback, fixes in short cycles"
+        ],
+        "caseStudy": {
+          "context": "A quit-smoking and vaping platform for Aboriginal and Torres Strait Islander communities, built for an international client. I was the main contributor on the front end and the CMS.",
+          "problem": "The site had to work well on every device for the people it serves, stay easy for the client's team to update, and send contact and newsletter sign-ups straight into the marketing tools they already use.",
+          "approach": [
+            "Built the Next.js site from the Figma designs and designed the Strapi content models and APIs behind it",
+            "Connected HubSpot CRM so every contact and newsletter sign-up lands in the client's marketing tools",
+            "Deployed staging with Docker on the company's self-hosted server for review",
+            "Worked directly with the client over Slack and ClickUp: requirements, UAT feedback and fixes in short cycles"
+          ],
+          "results": [
+            "Lighthouse 86–99 for performance and 96–100 for accessibility on every page, mobile and desktop",
+            "Sign-ups flow into HubSpot with no manual step",
+            "Pre-launch: running on staging, with client change requests shipped as they come in"
+          ]
+        }
+      },
+      {
+        "title": "House Nine & Nine and Found",
+        "slug": "house-nine",
+        "role": "Full-stack",
+        "company": "MOHA Software",
+        "links": [
+          {
+            "label": "housenine.co.uk",
+            "href": "https://housenine.co.uk"
+          },
+          {
+            "label": "nineandfound.com",
+            "href": "https://www.nineandfound.com"
+          }
+        ],
+        "period": "JUL — SEP 2026",
+        "summary": "Rebuild for an interior design studio: portfolio site and headless Shopify store on one CMS.",
+        "tags": "Next.js 16 · NestJS · Prisma · PostgreSQL · Redis · Shopify",
+        "details": [
+          "Built features across 3 apps: 2 public Next.js sites (studio and Shopify store) and the NestJS + React CMS shared by both",
+          "Developed the CMS admin: content editors, media library, and user and role management",
+          "Integrated the Shopify Storefront API for product listings, filters and search",
+          "Made the sites faster and sturdier: lighter images, lazy loading, fewer API calls, pages that stay up when Shopify is down",
+          "Delivered in 3 milestones agreed with the client (UI, CMS, then docs and user guides), reviewed over Slack and Google Meet"
+        ],
+        "caseStudy": {
+          "context": "An interior design studio with two sites: House Nine, its studio portfolio, and Nine and Found, its Shopify store. Both were rebuilt to run from one CMS.",
+          "problem": "Two public sites and a store meant content in several places, and the store pages depended on Shopify being up. The studio needed one place to manage everything and sites that hold up on their own.",
+          "approach": [
+            "Built features across 3 apps: the two public Next.js sites and the NestJS + React CMS they share",
+            "Developed the CMS admin: content editors, media library, and user and role management",
+            "Integrated the Shopify Storefront API for product listings, filters and search",
+            "Made the sites lighter and sturdier: smaller images, lazy loading, fewer API calls, and pages that keep working when Shopify is down"
+          ],
+          "results": [
+            "Both sites live at housenine.co.uk and nineandfound.com, managed from one CMS",
+            "Store pages stay up when Shopify is down",
+            "Delivered in 3 milestones agreed with the client: UI, CMS, then docs and user guides, reviewed over Slack and Google Meet"
+          ]
+        }
+      },
+      {
+        "title": "Flip The Vape",
+        "slug": "flip-the-vape",
+        "role": "Front-end",
+        "company": "MOHA Software",
+        "links": [
+          {
+            "label": "flipthevape.com",
+            "href": "https://flipthevape.com"
+          }
+        ],
+        "period": "MAY — JUN 2026",
+        "summary": "Public-health campaign site for Aboriginal communities, with a national site and regional subsites.",
+        "tags": "Next.js 14 · TypeScript · Tailwind CSS",
+        "details": [
+          "Turned Figma designs into a responsive front end that works across desktop, tablet and mobile",
+          "Built reusable UI components shared across the national site and 8 state and territory subsites",
+          "Built animated, interactive sections for the campaign content and delivered client change requests"
+        ],
+        "caseStudy": {
+          "context": "A public-health campaign site for Aboriginal communities: a national site plus 8 state and territory subsites.",
+          "problem": "Nine sites had to look and behave like one campaign on desktop, tablet and mobile, without building each one from scratch.",
+          "approach": [
+            "Turned the Figma designs into a responsive front end",
+            "Built a set of reusable UI components shared by the national site and all 8 subsites",
+            "Built the animated, interactive sections that carry the campaign content",
+            "Delivered client change requests through to launch"
+          ],
+          "results": [
+            "The national site and 8 subsites live at flipthevape.com, built on one shared component set",
+            "Responsive across desktop, tablet and mobile, from the same designs"
+          ]
+        }
+      },
+      {
+        "title": "Hatch Quarter",
+        "slug": "hatch-quarter",
+        "role": "Front-end",
+        "company": "MOHA Software",
+        "links": [
+          {
+            "label": "hatchquarter.com.au",
+            "href": "https://hatchquarter.com.au"
+          }
+        ],
+        "period": "MAY — JUN 2026",
+        "summary": "Corporate site for a venture-acceleration firm.",
+        "tags": "Next.js 16 · TypeScript · Tailwind CSS · Strapi 5",
+        "details": [
+          "Built 6 responsive pages plus the header, footer and mobile navigation from the design",
+          "Connected the pages to the Strapi CMS and built interactive sections such as animated sliders",
+          "Prepared the launch (client UI feedback, SEO fixes, sitemap) and kept maintaining the site after go-live"
+        ]
+      }
+    ]
+  },
+  "personal": {
+    "eyebrow": "02 / PERSONAL WORK",
+    "title": "Built on my own time.",
+    "projects": [
+      {
+        "title": "PushMeUp",
+        "slug": "pushmeup",
+        "period": "OCT 2026",
+        "tags": "React · TypeScript · MediaPipe · WebRTC · Cloudflare TURN · WebSockets · AWS · Terraform",
+        "links": [
+          {
+            "label": "pushmeup.quannh.xyz",
+            "href": "https://pushmeup.quannh.xyz"
+          }
+        ],
+        "summary": "A home-workout web app that counts your reps through the camera, with motion games you can play against a friend.",
+        "details": [
+          "Pose tracking in the browser with MediaPipe: counts reps for push-ups, squats, planks and more, with guided workouts and a spoken coach",
+          "Motion games (Shapeshift, Hurdles, Hole in the wall, Dodge ball) played solo, two on one device, or head to head over Duo",
+          "Duo matches peer to peer over WebRTC, paired through a small WebSocket server, with Cloudflare TURN relaying video when players can't connect directly; kept smooth on phones by moving the pose model to a Web Worker",
+          "Runs on EC2 provisioned with Terraform, shipped through GitHub Actions; English and Vietnamese"
+        ]
+      },
+      {
+        "title": "LoadForge",
+        "slug": "loadforge",
+        "period": "SEP — OCT 2026",
+        "tags": "AWS · Terraform · NestJS · Next.js · k6 · GitHub Actions",
+        "links": [
+          {
+            "label": "github.com/nghoangquan175/LoadForge",
+            "href": "https://github.com/nghoangquan175/LoadForge"
+          }
+        ],
+        "status": "Offline",
+        "summary": "A self-built lab for learning AWS: load-test an auto-scaling Node.js fleet, then harden it step by step.",
+        "details": [
+          "Provisioned the whole stack with Terraform: VPC, HTTPS load balancer, EC2 Auto Scaling with CloudWatch alarms, keyless GitHub OIDC deploys",
+          "Three apps: the servers under test (NestJS), a watcher that streams the Auto Scaling group and CloudWatch over SSE, and a Next.js dashboard",
+          "Raised throughput by 47% (26.7 → 39.2 req/s), cut health-check latency under load from ~20 s to 8 ms and scale-out from ~3 min to 30–50 s",
+          "Every change measured with a k6 load generator, shipped through zero-downtime CI/CD"
+        ],
+        "repo": "nghoangquan175/LoadForge",
+        "caseStudy": {
+          "context": "A lab I built on my own time to learn AWS by putting it under load: a fleet of Node.js servers (the Defenders) in an EC2 Auto Scaling group behind an HTTPS load balancer, a Watcher that streams the group's state, and a dashboard that shows it and runs load tests. All provisioned with Terraform and shipped through GitHub Actions.",
+          "problem": "Auto scaling looks simple on paper: add a server when average CPU passes 60%. The point was to load-test the real thing, find each place it failed to hold up, fix it, and measure every change.",
+          "approach": [
+            "Provisioned the stack with Terraform: a VPC across 2 public subnets, an HTTPS load balancer with a wildcard certificate, a launch template, the Auto Scaling group, CloudWatch, and config in SSM Parameter Store",
+            "Scaling rule: target tracking on average CPU at 60%",
+            "A CPU-heavy route on the Defenders (counting primes) to take traffic from k6 or the dashboard's own load test",
+            "Zero-downtime deploys: GitHub Actions builds the images to GHCR, and instance refresh starts new servers before stopping old ones"
+          ],
+          "chapters": [
+            {
+              "title": "Half the CPU went unused",
+              "problem": "Under load, the group never scaled out.",
+              "why": "A t3.micro has 2 vCPUs, but Node.js runs JavaScript on one core. One core sat at 100% and the other near 0%, so average CPU topped out around 50% and never reached the 60% target.",
+              "fix": [
+                "Node cluster: one worker per vCPU sharing the port, with the primary process restarting any that die"
+              ],
+              "result": "CPU use 101% → 200% and throughput 26.7 → 39.2 req/s (+47%). The scaling rule can fire."
+            },
+            {
+              "title": "Busy servers were replaced as dead",
+              "problem": "Under heavy load, servers were terminated and replaced instead of the group growing.",
+              "why": "The load balancer's health check waited in line behind the CPU-heavy requests on the same workers. It took ~20 s, timed out, and a server that was only busy was marked unhealthy.",
+              "fix": [
+                "The primary process answers health checks on its own port, while the load stays on the workers",
+                "Keep-alive raised to 125 s, past the load balancer's 120 s, which ended random 502s from reused closed connections"
+              ],
+              "result": "At 200% CPU the health check answers in 8 ms, and busy servers stay in the group."
+            },
+            {
+              "title": "The dashboard went blind during tests",
+              "problem": "During a load test the dashboard froze, and when it did show data, the data was minutes old.",
+              "why": "Its live stream was served by the same workers that ran the load, and CloudWatch data arrives 1–2 minutes late.",
+              "fix": [
+                "A separate Watcher service streams to the dashboard, polling only while one is open, since CloudWatch reads are billed",
+                "Each Defender keeps its own last 5 minutes at one point per second and its last hour in 15 s steps; the Watcher reads them directly",
+                "CloudWatch only fills the gaps, such as servers that are already gone"
+              ],
+              "result": "Dashboard delay 2–3 minutes → a few seconds, every point measured and none filled in."
+            },
+            {
+              "title": "Three minutes to react to a spike",
+              "problem": "A burst pushes the first server past 90% CPU at once, but the 60% rule waits for 3 one-minute data points before adding a server, and that server still has to boot.",
+              "fix": [
+                "A second, danger level: each server publishes its CPU every 10 s, and an average over 90% for 30 s adds 2 servers at once",
+                "New servers boot from an image with Docker already installed, so boot skips installing it"
+              ],
+              "result": "Scaling out starts in 30–50 s instead of about 3 minutes, for around $0.60 a month."
+            },
+            {
+              "title": "Traffic wasn't shared evenly",
+              "problem": "Once new servers were ready, the load balancer still sent the overloaded one the same share of new requests.",
+              "why": "Round robin takes turns; it doesn't look at how busy each server is.",
+              "fix": [
+                "Switched the target group to least outstanding requests: each new request goes to the server with the fewest still in flight"
+              ],
+              "result": "New servers take most new requests until they are as busy as the rest, while the overloaded one drains."
+            }
+          ],
+          "results": [
+            "Throughput per server 26.7 → 39.2 req/s (+47%)",
+            "Health check under load ~20 s → 8 ms",
+            "Scale-out reaction ~3 minutes → 30–50 s",
+            "Dashboard delay 2–3 minutes → a few seconds",
+            "Deploys with no downtime, even on a single server"
+          ],
+          "open": [
+            "Per-IP rate limiting with AWS WAF: against a real attacker, scaling means paying to serve the attack",
+            "A warm pool of pre-booted servers that start in 20–30 s",
+            "The app image baked into the server image, so boot skips the pull too",
+            "At least 2 servers at all times, so one isn't a single point of failure",
+            "Load shedding: answer 503 fast once a server's queue is too long",
+            "Measure boot time before and after the image change"
+          ]
+        }
+      },
+      {
+        "title": "Coding Guide",
+        "slug": "coding-guide",
+        "period": "IN DAILY USE",
+        "tags": "Claude Code · MCP · Next.js · Strapi · AWS",
+        "links": [
+          {
+            "label": "github.com/nghoangquan175/Coding-Guide",
+            "href": "https://github.com/nghoangquan175/Coding-Guide"
+          }
+        ],
+        "summary": "Claude Code skills distilled from lessons on client projects, used in daily work.",
+        "details": [
+          "A review checklist built from the bugs that came up most often across projects, checked against every change",
+          "Bug-fix workflow automated via ClickUp MCP: fix, self-review, open pull requests and report back, with human approval at each step",
+          "One-command setup for new Next.js + Strapi projects, wired to the client's technical criteria",
+          "EC2 deploy playbooks (Docker + GHCR, and PM2) that record every mistake made on the first production run",
+          "General UI/UX rules with a review checklist for building and reviewing screens"
+        ],
+        "repo": "nghoangquan175/Coding-Guide",
+        "caseStudy": {
+          "context": "My own set of Claude Code skills: the rules, checklists and workflows I kept re-explaining on client projects, written down once so an AI agent and I apply them the same way every time. Public on GitHub, and used in my daily work.",
+          "problem": "The same bugs kept coming back on new projects, and each project learnt them again. A lesson that lives in a commit message or in one repo's notes doesn't survive the next project, and an AI agent without that context repeats the mistake with full confidence.",
+          "approach": [
+            "Went through the history of two client projects, 578 commits and 84 tickets, and turned what had to be fixed into a review checklist: 199 checks in 12 sections, each linked to the commit that fixed it",
+            "Wrote each check to say how to see the problem, because most of them fail silently: a CMS field the API ignores, a CSS class that emits nothing, a fallback that looks exactly like real content",
+            "Made reviews load only the sections a change can affect, so a typical branch is checked against 3 or 4 of the 12 sections instead of the whole list",
+            "Automated the bug-fix workflow through ClickUp MCP: read the queue, sort it, fix, review against the checklist, ship to staging and report on each ticket, pausing for approval where asked",
+            "Turned new-project setup into one skill wired to the client's 33 technical criteria, and wrote deploy and SEO playbooks from building this site"
+          ],
+          "results": [
+            "7 skills, public on GitHub and in daily use",
+            "Every check can be traced back to the bug and the commit behind it",
+            "This site was deployed and given its SEO with these skills, and its first production run added its own mistakes to the deploy playbook"
+          ],
+          "open": [
+            "The PM2 deploy playbook has not been run end to end yet"
+          ]
+        }
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "03 / STACK",
+    "title": "Tools I reach for.",
+    "groups": [
+      {
+        "title": "AI WORKFLOW",
+        "items": "Claude Code, MCP, Antigravity"
+      },
+      {
+        "title": "FRONT-END",
+        "items": "Next.js, React, TypeScript, Tailwind CSS, Redux"
+      },
+      {
+        "title": "BACK-END & CMS",
+        "items": "NestJS, Node.js, Strapi, Prisma, ExpressJS"
+      },
+      {
+        "title": "DATA",
+        "items": "PostgreSQL, Redis, MySQL, MongoDB, SQLite"
+      },
+      {
+        "title": "CLOUD & DELIVERY",
+        "items": "AWS, Terraform, Docker, GitHub Actions, Nginx, Cloudflare"
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "04 / EXPERIENCE",
+    "title": "Where I've worked and studied.",
+    "jobs": [
+      {
+        "period": "MAR 2026 — PRESENT",
+        "title": "Full-stack Developer · MOHA Software",
+        "points": [
+          "5 production websites for international clients",
+          "Figma → Next.js, Strapi and NestJS back ends",
+          "Claude Code + MCP in the daily workflow"
+        ]
+      },
+      {
+        "period": "JUL 2025 — DEC 2025",
+        "title": "Intern Software Developer · ADD Group",
+        "points": [
+          "Websites with HTML, CSS, JS and Blogger",
+          "Google Cloud integrations with Sheets & Chat",
+          "Internal hardware, network and servers"
+        ]
+      },
+      {
+        "period": "DEC 2022 — JUN 2026",
+        "title": "B.S. in Information Technology · Hanoi Open University",
+        "tag": "EDUCATION",
+        "points": [
+          "Major: Software Engineering"
+        ]
+      }
+    ]
+  },
+  "language": {
+    "eyebrow": "05 / LANGUAGE",
+    "title": "Working in English, every day.",
+    "text": "Every client I've worked with so far has been abroad, so English is the language my work happens in — from the first call to the handover.",
+    "certificate": {
+      "name": "IELTS Academic",
+      "date": "DEC 2025",
+      "overall": "6.5",
+      "cefr": "B2",
+      "imageAlt": "IELTS Academic Test Report Form, overall band 6.5 (personal ID and date of birth hidden)"
+    },
+    "uses": [
+      {
+        "label": "WRITING",
+        "text": "Day-to-day work with clients in writing over Slack and ClickUp: clarifying requirements, raising questions early, reporting progress and answering UAT feedback."
+      },
+      {
+        "label": "MEETINGS",
+        "text": "Kick-offs, milestone reviews and UAT walkthroughs on Google Meet, where scope and priorities get agreed out loud."
+      },
+      {
+        "label": "DOCUMENTS",
+        "text": "Handover documentation and user guides written for the client's own team."
+      },
+      {
+        "label": "READING",
+        "text": "Working straight from English documentation, specs and design notes, without translation in between."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "06 / CONTACT",
+    "title": "Let's build the next step.",
+    "text": "A project, a role or just a question about something on this page — write to me. Email is the fastest way to reach me.",
+    "email": "nghoangquan1705@gmail.com",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "value": "in/nghoangquan175",
+        "href": "https://www.linkedin.com/in/nghoangquan175/"
+      },
+      {
+        "label": "GitHub",
+        "value": "nghoangquan175",
+        "href": "https://github.com/nghoangquan175"
+      }
+    ],
+    "location": "Hanoi, Vietnam",
+    "timeZone": "Asia/Ho_Chi_Minh"
+  },
+  "footer": {
+    "name": "Nguyen Hoang Quan",
+    "tagline": "Full-stack developer building and looking after production websites for international clients.",
+    "location": "Hanoi, Vietnam"
+  }
+}
