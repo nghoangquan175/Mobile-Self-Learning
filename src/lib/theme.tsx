@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { createContext, useContext, useEffect, useState } from "react";
 import { Platform, useColorScheme } from "react-native";
 
 // The web's colour tokens (QuanNH-Landing styles/includes/_theme.scss).
@@ -33,12 +34,33 @@ type Scheme = "light" | "dark";
 
 const ThemeContext = createContext<{ scheme: Scheme; toggle: () => void }>({ scheme: "dark", toggle: () => {} });
 
-/** Follows the phone's setting until the header toggle picks one, as on the web. */
+const STORAGE_KEY = "theme";
+
+/**
+ * Follows the phone's setting until the header toggle picks one, as on the web.
+ * The pick is saved on the device, so it survives the OS killing the app.
+ */
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const system = useColorScheme() === "light" ? "light" : "dark";
   const [picked, setPicked] = useState<Scheme | null>(null);
   const scheme = picked ?? system;
-  return <ThemeContext.Provider value={{ scheme, toggle: () => setPicked(scheme === "light" ? "dark" : "light") }}>{children}</ThemeContext.Provider>;
+
+  useEffect(() => {
+    AsyncStorage.getItem(STORAGE_KEY)
+      .then((saved) => {
+        // Only if the user hasn't toggled while the read was in flight.
+        if (saved === "light" || saved === "dark") setPicked((current) => current ?? saved);
+      })
+      .catch(() => {});
+  }, []);
+
+  const toggle = () => {
+    const next = scheme === "light" ? "dark" : "light";
+    setPicked(next);
+    AsyncStorage.setItem(STORAGE_KEY, next).catch(() => {});
+  };
+
+  return <ThemeContext.Provider value={{ scheme, toggle }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {
