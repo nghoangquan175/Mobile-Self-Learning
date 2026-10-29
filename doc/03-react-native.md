@@ -100,6 +100,27 @@ my-app/
 
 Daily loop: `npx expo start` → Metro (the JS bundler) serves the code → save a file → **Fast Refresh** updates the app in about a second.
 
+How Fast Refresh reaches the phone — a WebSocket, like Vite/Next HMR:
+
+```
+VS Code: save index.tsx
+   │
+Metro (PC) — watches files, sees index.tsx changed
+   │  rebundles only that module (~300 ms)
+   ▼
+WebSocket  ws://<PC IP>:8081/hot
+   │  sends the new code of that module
+   ▼
+App on the phone (JS thread / Hermes)
+   │  swaps the old module for the new one
+   ▼
+React re-renders the component → UI thread draws the new text
+```
+
+- Only the changed module is sent, not the whole bundle; component state is kept (edits to non-component files reload the app).
+- The same connection carries `console.log` back to the terminal and the `r` reload.
+- Dev only — a release build has the bundle inside the app, no Metro, no WebSocket.
+
 ## 8. Watch out for
 
 | | |
