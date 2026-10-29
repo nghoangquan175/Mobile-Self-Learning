@@ -131,7 +131,9 @@ Libraries like AsyncStorage or `expo-sqlite` are JS wrappers; underneath, the da
 | Expected behaviour | Error page is acceptable | Show cached data, retry, queue actions until online (**offline-first** for apps that need it) |
 | Speed/size | Rarely an issue | Mobile data costs money — compress images, paginate lists |
 
-## 9. Push notifications
+## 9. Notifications: push and local
+
+### Push notifications (sent by a server)
 
 ```
 your backend ──► APNs (Apple) / FCM (Google) ──► OS on the phone ──► notification shown
@@ -140,6 +142,43 @@ your backend ──► APNs (Apple) / FCM (Google) ──► OS on the phone ─
 - The app registers with the OS and gets a **device token** → sends it to your backend → the backend sends pushes **through Apple/Google**, never directly to the phone.
 - The user must allow notifications (iOS always asks; Android 13+ asks too).
 - Tapping a notification usually opens a specific screen (a deep link).
+
+### Local (scheduled) notifications (set by the app itself)
+
+The app hands the schedule to the OS — like setting an alarm in the Clock app. When the time comes, the OS shows it, even if the app has been killed.
+
+```
+WHEN THE TASK IS CREATED (app open)
+  JS: scheduleNotificationAsync({ title, body, trigger: { date } })
+        │  expo-notifications (native module)
+        ▼
+  iOS:     UNUserNotificationCenter.add(request)      → the system stores the request
+  Android: stores the request + AlarmManager.set(alarm) → the system holds an "alarm"
+        │
+        ▼  returns a notificationId → the app keeps it to cancel or change it later
+
+  ... app killed, phone locked, no JS running ...
+
+WHEN THE TIME COMES
+  iOS:     the system shows the notification itself — the app doesn't run at all
+  Android: AlarmManager wakes a small part of the app (a native BroadcastReceiver —
+           no JS, no UI) → it builds the notification → NotificationManager shows it
+        │
+        ▼
+  The user taps it → the app opens (a cold start if it had been killed)
+```
+
+- **Your JS doesn't run when it fires**, so the content (title, time) is fixed when it's scheduled — editing a task means cancelling and scheduling again.
+- **iOS** keeps the schedule across reboots; at most **64** pending per app.
+- **Android** loses alarms on reboot (expo-notifications reschedules on `BOOT_COMPLETED`); **Force stop** cancels them until the user opens the app; exact timing needs the exact-alarm permission.
+
+| | **Local** | **Push** |
+|---|---|---|
+| Who decides to send | The app, when scheduling | The server |
+| Path | App → OS holds the schedule → OS shows it | Server → APNs / FCM → OS shows it |
+| Needs network | No | Yes |
+| Knows about new changes | No — only what was scheduled | Yes — the server can send any time |
+| Good for | Reminders, alarms, timers | New messages, assigned tasks, multi-device sync |
 
 ## 10. Screens & UI units
 
