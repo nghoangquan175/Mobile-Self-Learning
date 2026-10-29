@@ -64,7 +64,7 @@ Test it: Android *Developer options → Don't keep activities* kills the app eve
 
 ## 4. Storage (localStorage, cookies… on mobile)
 
-Each app has its own **sandbox** — a private folder no other app can read. Everything is **deleted when the app is uninstalled**.
+Each app has its own **sandbox** — a private folder no other app can read. Everything in it is **deleted when the app is uninstalled** (the iOS Keychain is the exception, see below).
 
 | Web | Mobile equivalent | Use for |
 |---|---|---|
@@ -75,6 +75,26 @@ Each app has its own **sandbox** — a private folder no other app can read. Eve
 | `sessionStorage` | Just **in-memory state** | Data for the current run only — lost when the app is killed |
 
 ⚠️ Never put tokens in plain key-value storage — it's readable on a rooted/jailbroken phone or in a backup.
+
+### Where it actually lives on the device
+
+Libraries like AsyncStorage or `expo-sqlite` are JS wrappers; underneath, the data sits here. The sandbox root is `/var/mobile/Containers/Data/Application/<UUID>/` on iOS and `/data/data/<package>/` on Android.
+
+| # | In Expo | **iOS** | **Android** |
+|---|---|---|---|
+| 1 | State (memory) | The app process's RAM (Hermes JS heap) — no file | Same |
+| 2 | AsyncStorage | Files in `Library/Application Support/<bundleId>/RCTAsyncLocalStorage_V1/` (`manifest.json` + files for large values) | A SQLite database named **`RKStorage`** in `databases/` |
+| | *Native key-value* | **UserDefaults** — a `.plist` in `Library/Preferences/` | **SharedPreferences** — XML in `shared_prefs/` (newer: **DataStore**) |
+| | MMKV | Memory-mapped files in `Documents/mmkv/` | `files/mmkv/` |
+| 3 | SecureStore | **Keychain** — an encrypted database run by the OS, **outside the sandbox** | **Android Keystore** holds the key in secure hardware (TEE/StrongBox); values encrypted with it are stored in **SharedPreferences** |
+| 4 | expo-sqlite | A `.db` file in `Documents/SQLite/` | A `.db` file in `files/SQLite/` |
+| | *Native database* | **Core Data** / **SwiftData** (SQLite underneath) | **Room** (SQLite underneath) |
+| 5 | expo-file-system | `Documents/` (backed up to iCloud), `Library/Caches/` (the OS may clear it), `tmp/` | `files/` (internal), `cache/` (the OS may clear it), app-specific external `/sdcard/Android/data/<package>/` |
+
+- **The iOS Keychain can survive an uninstall** (it's outside the sandbox) — a reinstall can read old tokens, so apps often clear it on first launch.
+- **Natively it's almost all SQLite or files** — AsyncStorage on Android, Core Data and Room are SQLite underneath.
+- **Caches can be wiped by the OS at any time** — never keep data that matters in `Caches/` / `cache/`.
+- **In Expo Go** everything lives in Expo Go's own sandbox (`host.exp.exponent`), scoped per project; only a real build gets a sandbox under your own bundle ID / package.
 
 ## 5. Session & auth (no cookies by default)
 
